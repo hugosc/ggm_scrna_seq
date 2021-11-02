@@ -11,5 +11,11 @@ gene_counts.csv:
 selected_gene_counts.csv:
   type: pandas.CSVDataSet
   filepath: "data/02_intermediate/selected_gene_counts.csv"
-  load_args: 
-    sep: "\t"
+
+gene_counts_clean.csv:
+  type: pandas.CSVDataSet
+  filepath: "data/02_intermediate/gene_counts_clean.csv"
+    
+gene_counts_expressed.csv:
+  type: pandas.CSVDataSet
+  filepath: "data/02_intermediate/gene_counts_expressed.csv"

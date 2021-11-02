@@ -28,9 +28,7 @@
 
 from setuptools import find_packages, setup
 
-entry_point = (
-    "ggm_scrna_seq = ggm_scrna_seq.__main__:main"
-)
+entry_point = "ggm_scrna_seq = ggm_scrna_seq.__main__:main"
 
 
 # get the dependencies and installs

@@ -33,13 +33,11 @@ from kedro.pipeline import Pipeline
 
 from .pipelines.imputation.pipeline import create_pipeline as create_imputation_pipeline
 
+
 def register_pipelines() -> Dict[str, Pipeline]:
     """Register the project's pipelines.
 
     Returns:
         A mapping from a pipeline name to a ``Pipeline`` object.
     """
-    return {
-        "__default__": Pipeline([]),
-        "imputation": create_imputation_pipeline()
-    }
+    return {"__default__": Pipeline([]), "imputation": create_imputation_pipeline()}

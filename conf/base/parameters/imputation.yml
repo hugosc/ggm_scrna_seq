@@ -1,2 +1,12 @@
 genotype_group: stp1
+
 condition: YPD
+
+non_gene_cols:
+  - KANMX
+  - NATMX
+  - Genotype
+  - Genotype_Group
+  - Replicate
+  - Condition
+  - tenXBarcode
