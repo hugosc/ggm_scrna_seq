@@ -1,6 +1,10 @@
 from kedro.pipeline import Pipeline, node
 
-from .nodes import select_strain_and_environment, select_gene_columns, drop_genes_without_expression
+from .nodes import (
+    select_strain_and_environment,
+    select_gene_columns,
+    drop_genes_without_expression,
+)
 
 
 def create_pipeline() -> Pipeline:
@@ -21,18 +25,15 @@ def create_pipeline() -> Pipeline:
             ),
             node(
                 select_gene_columns,
-                [
-                    "selected_gene_counts.csv",
-                    "params:non_gene_cols"
-                ],
+                ["selected_gene_counts.csv", "params:non_gene_cols"],
                 "gene_counts_clean.csv",
-                tags=["imputation"]
+                tags=["imputation"],
             ),
             node(
                 drop_genes_without_expression,
                 "gene_counts_clean.csv",
                 "gene_counts_expressed.csv",
-                tags=["imputation"]
-            )
+                tags=["imputation"],
+            ),
         ]
     )
