@@ -19,3 +19,11 @@ gene_counts_clean.csv:
 gene_counts_expressed.csv:
   type: pandas.CSVDataSet
   filepath: "data/02_intermediate/gene_counts_expressed.csv"
+
+gene_counts_imputed.csv:
+  type: pandas.CSVDataSet
+  filepath: "data/03_primary/gene_counts_imputed.csv"
+
+impute_best_params.json:
+  type: json.JSONDataSet
+  filepath: "data/06_models/impute_best_params.json"

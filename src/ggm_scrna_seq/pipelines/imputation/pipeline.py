@@ -4,6 +4,7 @@ from .nodes import (
     select_strain_and_environment,
     select_gene_columns,
     drop_genes_without_expression,
+    impute_genes_with_cross_validation,
 )
 
 
@@ -33,6 +34,16 @@ def create_pipeline() -> Pipeline:
                 drop_genes_without_expression,
                 "gene_counts_clean.csv",
                 "gene_counts_expressed.csv",
+                tags=["imputation"],
+            ),
+            node(
+                impute_genes_with_cross_validation,
+                [
+                    "gene_counts_expressed.csv",
+                    "params:impute_params_grid",
+                    "params:rna_seq_capture_efficiency",
+                ],
+                ["gene_counts_imputed.csv", "impute_best_params.json"],
                 tags=["imputation"],
             ),
         ]

@@ -1,5 +1,8 @@
 import pandas as pd  # type: ignore
-from typing import Iterable
+from typing import Iterable, Tuple
+
+from magic import MAGIC
+from ggm_scrna_seq.libs.molecular_cross_validation import GridSearchMCV
 
 import logging
 
@@ -45,3 +48,14 @@ def drop_genes_without_expression(df_counts: pd.DataFrame) -> pd.DataFrame:
         f"Removing {df_counts.shape[1] - len(genes_with_some_counts)} genes with no counts"
     )
     return df_counts[genes_with_some_counts]
+
+
+def impute_genes_with_cross_validation(
+    df_counts: pd.DataFrame, param_grid: dict, capture_efficiency: float
+) -> Tuple[pd.DataFrame, dict]:
+    mc_validator = GridSearchMCV(
+        MAGIC(), param_grid, loss="poisson", sample_ratio=capture_efficiency
+    )
+    df_imputed = df_counts.copy()
+    df_imputed.iloc[:] = mc_validator.fit_transform(df_counts)
+    return df_imputed, mc_validator.best_params_

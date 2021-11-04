@@ -12,7 +12,7 @@ from sklearn.metrics import mean_squared_error  # type: ignore
 from sklearn.model_selection import ParameterGrid  # type: ignore
 from sklearn.utils.validation import check_random_state, check_is_fitted  # type: ignore
 
-import molecular_cross_validation.util as ut
+from . import util as ut
 
 
 # copy of sklearn.model_selection._check_param_grid

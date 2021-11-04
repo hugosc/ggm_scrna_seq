@@ -35,9 +35,12 @@ from .pipelines.imputation.pipeline import create_pipeline as create_imputation_
 
 
 def register_pipelines() -> Dict[str, Pipeline]:
+
+    imputation_pipeline = create_imputation_pipeline()
+    full_pipeline = imputation_pipeline
     """Register the project's pipelines.
 
     Returns:
         A mapping from a pipeline name to a ``Pipeline`` object.
     """
-    return {"__default__": Pipeline([]), "imputation": create_imputation_pipeline()}
+    return {"__default__": full_pipeline, "imputation": imputation_pipeline}

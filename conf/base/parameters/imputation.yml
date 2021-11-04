@@ -10,3 +10,9 @@ non_gene_cols:
   - Replicate
   - Condition
   - tenXBarcode
+
+impute_params_grid:
+  knn: [5, 10, 15]
+  t: [1, 3, 5]
+
+rna_seq_capture_efficiency: 0.1
