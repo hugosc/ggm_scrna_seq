@@ -1,0 +1,3 @@
+ggm_params:
+  algorithm: D-S_NW_SL
+  alpha_fdr_control: 0.05

@@ -2,12 +2,13 @@
 
 ## Overview
 
-This is your new Kedro project, which was generated using `Kedro 0.17.5`.
+
+This project is intended to provide pipelines related to structural analysis of single-cell RNA sequencing data.
+
+Built using `Kedro 0.17.5`.
+So far, Data was obtained from [here](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE125162).
 
 Take a look at the [Kedro documentation](https://kedro.readthedocs.io) to get started.
-
-
-Data was obtained from [here](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE125162).
 
 ## Rules and guidelines
 

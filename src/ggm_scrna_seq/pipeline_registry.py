@@ -32,15 +32,23 @@ from typing import Dict
 from kedro.pipeline import Pipeline
 
 from .pipelines.imputation.pipeline import create_pipeline as create_imputation_pipeline
+from .pipelines.structure_learning.pipeline import (
+    create_pipeline as create_structure_learning_pipeline,
+)
 
 
 def register_pipelines() -> Dict[str, Pipeline]:
 
     imputation_pipeline = create_imputation_pipeline()
-    full_pipeline = imputation_pipeline
+    struc_learning_pipeline = create_structure_learning_pipeline()
+    full_pipeline = imputation_pipeline + struc_learning_pipeline
     """Register the project's pipelines.
 
     Returns:
         A mapping from a pipeline name to a ``Pipeline`` object.
     """
-    return {"__default__": full_pipeline, "imputation": imputation_pipeline}
+    return {
+        "__default__": full_pipeline,
+        "imputation": imputation_pipeline,
+        "structure_learning": struc_learning_pipeline,
+    }

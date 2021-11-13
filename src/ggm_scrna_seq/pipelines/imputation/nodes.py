@@ -1,8 +1,8 @@
 import pandas as pd  # type: ignore
 from typing import Iterable, Tuple
 
-from magic import MAGIC
-from ggm_scrna_seq.libs.molecular_cross_validation import GridSearchMCV
+from magic import MAGIC  # type: ignore
+from ...libs.molecular_cross_validation import GridSearchMCV
 
 import logging
 
@@ -53,6 +53,7 @@ def drop_genes_without_expression(df_counts: pd.DataFrame) -> pd.DataFrame:
 def impute_genes_with_cross_validation(
     df_counts: pd.DataFrame, param_grid: dict, capture_efficiency: float
 ) -> Tuple[pd.DataFrame, dict]:
+
     mc_validator = GridSearchMCV(
         MAGIC(), param_grid, loss="poisson", sample_ratio=capture_efficiency
     )

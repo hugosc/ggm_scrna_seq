@@ -1,16 +1,13 @@
-import itertools
 from collections import defaultdict
-from functools import partial
-from typing import Callable, Mapping, Sequence, Any, Union, Optional
+from typing import Callable, Mapping, Sequence, Union, Optional
 
 import numpy as np  # type: ignore
-from numpy.ma import MaskedArray
 from numpy.random import RandomState
 
 from sklearn.base import BaseEstimator, TransformerMixin  # type: ignore
 from sklearn.metrics import mean_squared_error  # type: ignore
 from sklearn.model_selection import ParameterGrid  # type: ignore
-from sklearn.utils.validation import check_random_state, check_is_fitted  # type: ignore
+from sklearn.utils.validation import check_random_state  # type: ignore
 
 from . import util as ut
 

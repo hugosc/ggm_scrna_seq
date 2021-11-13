@@ -27,3 +27,15 @@ gene_counts_imputed.csv:
 impute_best_params.json:
   type: json.JSONDataSet
   filepath: "data/06_models/impute_best_params.json"
+
+precision_structure.pkl:
+  type: pickle.PickleDataSet
+  filepath: "data/07_model_output/structure.pkl"
+
+precision_p_values.pkl:
+  type: pickle.PickleDataSet
+  filepath: "data/07_model_output/precision_p_values.pkl"
+
+empirical_covariance.pkl:
+  type: pickle.PickleDataSet
+  filepath: "data/07_model_output/empirical_covariance.pkl"
