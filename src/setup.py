@@ -60,4 +60,5 @@ setup(
             "ipykernel>=5.3, <7.0",
         ]
     },
+    namespace_packages=["graph_ecp"]
 )
